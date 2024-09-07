@@ -2,11 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const User = require("./models/User");
 require("dotenv").config();
+const cors = require("cors");
 
 // Initialize Express app
 const app = express();
-
 // Middleware
+app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection

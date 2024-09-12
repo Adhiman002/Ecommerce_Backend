@@ -5,7 +5,7 @@ const Address = require("../models/Address");
 const PromoCode = require("../models/PromoCode");
 
 const SignUp = async (req, res) => {
-  const { username, email, password, userType } = req.body;
+  const { username, email, password } = req.body;
   console.log(username, email, password);
   // Basic validation
   if (!username || !email || !password) {
@@ -24,7 +24,7 @@ const SignUp = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     // Create new user
-    const newUser = new User({ username, email, password: hashedPassword, usertype: userType });
+    const newUser = new User({ username, email, password: hashedPassword});
     await newUser.save();
 
     res.status(201).json(newUser);

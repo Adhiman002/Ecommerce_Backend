@@ -10,6 +10,9 @@ app.use(cors());
 
 // Middleware
 app.use(express.json());
+app.get('/', (req, res) => {
+    res.send('products api running new deploy');
+});
 app.use("/auth", Authentication);
 // MongoDB Connection
 mongoose
